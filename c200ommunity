@@ -1,0 +1,14 @@
+#!/bin/bash
+# 定义一个使用局部变量的函数
+calculate_square() {
+local num=$1
+square=$(echo "$num * $num" | bc)
+echo "平方是：$square"
+}
+echo "请输入你的名字："
+read name
+echo "你好，$name！"
+# 调用函数
+calculate_square $name
+# 尝试访问局部变量（将无效）
+echo "局部变量 square 的值是：$square" # 将不会显示 square 的值
